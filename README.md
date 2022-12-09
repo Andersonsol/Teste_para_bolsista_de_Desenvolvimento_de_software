@@ -97,3 +97,36 @@ def incoming_sms():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+/* Além disso vamos precisar de uma biblioteca pyodbc que vai permitir essa integração do Python com bancos de dados.
+
+Para instalar uma biblioteca basta ir até o terminal e escrever pip install pyodbc.
+
+Aqui nós vamos começar o código que vamos utilizar para fazer essa integração.*/
+
+
+import pyodbc
+
+dados_conexao = (
+    "Driver={PostgreSQL Server};"
+    "Server= MacBookAnderson.local;"
+    "Database=PythonSQL;"
+)
+/* Esse código vai permitir com que você faça a conexão com o banco de dados. Para garantir que funcionou precisamos criar essa conexão.*/
+conexao = pyodbc.connect(dados_conexao)
+print("Conexão Bem Sucedida") 
+
+
+/* Com isso vamos verificar se está tudo correto, se estiver seguido o passo a passo corretamente você vai ter esse print da conexão bem-sucedida.*/ 
+
+cursor = conexao.cursor()
+
+/*Importante: Nessa parte é importante que você tenha um breve conhecimento em SQL para que possa escrever seus códigos para dar comandos ao SQL, pois como a programação é feita nessa linguagem é necessário que você saiba para poder criar os comandos que precisa.*/
+
+import pandas as pd
+
+# Biblioteca NumPy -  manipular com dados numéricos em Python
+import numpy as np
+/* Você pode instalar o Pandas pontualmente, mas caso tenha instalado o Python através do Anaconda, conforme indicamos, ele já será instalado juntamente com a linguagem, sendo que só nos resta realizar a importação nos scripts onde o pacote for utilizado.*/
+
